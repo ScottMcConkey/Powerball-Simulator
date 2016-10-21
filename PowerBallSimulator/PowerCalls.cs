@@ -31,11 +31,17 @@ namespace PowerBallSimulator
         }
     }
 
-    class Game
+    public class Game
     {
-        Game()
+        public Game()
         {
+            // initialize powerballs from here?
+            
+        }
 
+        public int CalculateWinnings(int[] actuals, int[] guesses)
+        {
+            return 1;
         }
     }
 
@@ -52,4 +58,6 @@ namespace PowerBallSimulator
             return random;
         }
     }
+
+
 }

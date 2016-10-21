@@ -20,12 +20,34 @@ namespace PowerBallSimulator
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly int CostToPlay = 2;
+        private int TotalAmountPaid;
+        public int[] Actuals = new int[6];
+        public int[] Guesses = new int[6];
+
         public MainWindow()
         {
             InitializeComponent();
+            GeneratePowerBallValues();
+            Game game = new Game();
         }
 
         private void newgame_Click(object sender, RoutedEventArgs e)
+        {
+            GeneratePowerBallValues();
+            ClearGuessValues();
+        }
+
+        private void play_Click(object sender, RoutedEventArgs e)
+        {
+            // Pay for each guess
+            TotalAmountPaid += CostToPlay;
+            this.TotalCost.Text = String.Format("{0:C}",TotalAmountPaid);
+
+            GenerateGuessValues();
+        }
+
+        private void GeneratePowerBallValues()
         {
             // Set Powerball values
             PowerBall white1 = new White();
@@ -48,7 +70,7 @@ namespace PowerBallSimulator
             this.Actual6.Text = red.Number.ToString();
         }
 
-        private void play_Click(object sender, RoutedEventArgs e)
+        private void GenerateGuessValues()
         {
             // Set Guess values
             PowerBall white1 = new White();
@@ -69,6 +91,21 @@ namespace PowerBallSimulator
             // Set Red Powerball
             PowerBall red = new Red();
             this.Guess6.Text = red.Number.ToString();
+        }
+
+        private void ClearGuessValues()
+        {
+            this.Guess1.Text = null;
+            this.Guess2.Text = null;
+            this.Guess3.Text = null;
+            this.Guess4.Text = null;
+            this.Guess5.Text = null;
+            this.Guess6.Text = null;
+        }
+
+        private void Payout_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

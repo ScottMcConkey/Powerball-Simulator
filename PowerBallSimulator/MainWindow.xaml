@@ -41,10 +41,10 @@
         <Label x:Name="label" Content="Total Cost:" HorizontalAlignment="Left" Margin="254,275,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Payout:" HorizontalAlignment="Left" Margin="270,222,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label2" Content="Total Winnings:" HorizontalAlignment="Left" Margin="228,247,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label3" Content="Info" HorizontalAlignment="Left" Margin="30,270,0,0" VerticalAlignment="Top" Foreground="#FF161CA6" Background="{x:Null}"/>
-        <TextBox x:Name="Actual1_Copy" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="374,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Background="Gray"/>
-        <TextBox x:Name="Actual1_Copy1" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="374,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Background="Gray"/>
-        <TextBox x:Name="Actual1_Copy2" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="374,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Background="Gray"/>
+        <Label x:Name="info" Content="Info" HorizontalAlignment="Left" Margin="30,270,0,0" VerticalAlignment="Top" Foreground="#FF161CA6" Background="{x:Null}"/>
+        <TextBox x:Name="Payout" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="374,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Background="Gray" TextAlignment="Right" TextChanged="Payout_TextChanged"/>
+        <TextBox x:Name="TotalWinnings" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="374,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Background="Gray" TextAlignment="Right"/>
+        <TextBox x:Name="TotalCost" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="374,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Background="Gray" TextAlignment="Right"/>
 
     </Grid>
 </Window>
