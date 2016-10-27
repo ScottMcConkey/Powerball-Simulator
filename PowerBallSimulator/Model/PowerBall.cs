@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PowerBallSimulator
+namespace PowerBallSimulator.Model
 {
     public abstract class PowerBall
     {
@@ -11,9 +11,9 @@ namespace PowerBallSimulator
         public int Number { get; set; }
     }
 
-    public class White : PowerBall
+    public class WhiteBall : PowerBall
     {
-        public White()
+        public WhiteBall()
         {
             upperBound = 70;
             Color = "white";
@@ -21,9 +21,9 @@ namespace PowerBallSimulator
         }
     }
 
-    public class Red : PowerBall
+    public class RedBall : PowerBall
     {
-        public Red()
+        public RedBall()
         {
             upperBound = 27;
             Color = "red";
@@ -31,25 +31,6 @@ namespace PowerBallSimulator
         }
     }
 
-    public class Game
-    {
-        public Game()
-        {
-            // initialize powerballs from here?
-            
-        }
-
-        public int CalculateWinnings(int[] actuals, int[] guesses)
-        {
-            return 1;
-        }
-    }
-
-    /// <summary>
-	/// Every power ball needs a random number within its appropriate range.
-    /// Use this function to generate a random seed that can be used by each
-    /// Ball object. The object will determine the range.
-	/// </summary>
     class RandomNumber
     {
         public static Random GetRandomSeed()
@@ -58,6 +39,4 @@ namespace PowerBallSimulator
             return random;
         }
     }
-
-
 }
