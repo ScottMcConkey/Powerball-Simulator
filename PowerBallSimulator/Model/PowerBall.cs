@@ -1,14 +1,51 @@
 ﻿using System;
+using System.ComponentModel;
 
 namespace PowerBallSimulator.Model
 {
-    public abstract class PowerBall
+    public abstract class PowerBall : INotifyPropertyChanged
     {
         // Establish a random seed for each ball
         protected Random random = RandomNumber.GetRandomSeed();
         protected int upperBound;
         public string Color { get; set; }
-        public int Number { get; set; }
+
+        private int? _Number;
+        public int? Number
+        {
+            get
+            {
+                return _Number;
+            }
+            set
+            {
+                _Number = value;
+                OnPropertyChanged("Number");
+            }
+        }
+
+        public void Clear()
+        {
+            Number = null;
+        }
+
+        public void AssignNumber()
+        {
+            Number = random.Next(1, upperBound);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string p)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(p));
+            }
+        }
+
     }
 
     public class WhiteBall : PowerBall
@@ -17,7 +54,7 @@ namespace PowerBallSimulator.Model
         {
             upperBound = 70;
             Color = "white";
-            Number = random.Next(1, upperBound);
+            AssignNumber();
         }
     }
 
@@ -27,7 +64,7 @@ namespace PowerBallSimulator.Model
         {
             upperBound = 27;
             Color = "red";
-            Number = random.Next(1, upperBound);
+            AssignNumber();
         }
     }
 
@@ -39,4 +76,5 @@ namespace PowerBallSimulator.Model
             return random;
         }
     }
+
 }

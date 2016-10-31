@@ -32,21 +32,21 @@
             <TextBlock Text="Ball"  FontSize="18" FontWeight="ExtraBold" Width="50" Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" TextAlignment="Center" Canvas.Left="250" Foreground="White" Canvas.Top="13"/>
         </Canvas>
 
-        <TextBox Text="{Binding txtActual1}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="114,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" Background="Gray"/>
-        <TextBox Text="{Binding txtActual2}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="149,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" Background="Gray"/>
-        <TextBox Text="{Binding txtActual3}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="184,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" Background="Gray"/>
-        <TextBox Text="{Binding txtActual4}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="219,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" Background="Gray"/>
-        <TextBox Text="{Binding txtActual5}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="254,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" Background="Gray"/>
-        <TextBox Text="{Binding txtActual6}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="289,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" Background="Gray"/>
-        <TextBox Text="{Binding txtGuess1}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="114,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
-        <TextBox Text="{Binding txtGuess2}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="149,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
-        <TextBox Text="{Binding txtGuess3}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="184,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
-        <TextBox Text="{Binding txtGuess4}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="219,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
-        <TextBox Text="{Binding txtGuess5}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="254,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
-        <TextBox Text="{Binding txtGuess6}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="289,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
+        <TextBox Text="{Binding game.Actual1.Number}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="114,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" Background="Gray"/>
+        <TextBox Text="{Binding game.Actual2.Number}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="149,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" Background="Gray"/>
+        <TextBox Text="{Binding game.Actual3.Number}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="184,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" Background="Gray"/>
+        <TextBox Text="{Binding game.Actual4.Number}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="219,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" Background="Gray"/>
+        <TextBox Text="{Binding game.Actual5.Number}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="254,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" Background="Gray"/>
+        <TextBox Text="{Binding game.Actual6.Number}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="289,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30" Background="Gray"/>
+        <TextBox Text="{Binding game.Guess1.Number}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="114,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
+        <TextBox Text="{Binding game.Guess2.Number}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="149,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
+        <TextBox Text="{Binding game.Guess3.Number}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="184,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
+        <TextBox Text="{Binding game.Guess4.Number}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="219,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
+        <TextBox Text="{Binding game.Guess5.Number}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="254,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
+        <TextBox Text="{Binding game.Guess6.Number}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="289,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
 
-        <Button x:Name="newgame" Content="New Game" HorizontalAlignment="Left" Margin="374,140,0,0" VerticalAlignment="Top" Width="75" Background="#FFD31818"/>
-        <Button x:Name="play" Content="Play!" HorizontalAlignment="Left" Margin="374,175,0,0" VerticalAlignment="Top" Width="75" Background="#FF1E369E"/>
+            <Button x:Name="newgame" Content="New Game" HorizontalAlignment="Left" Margin="374,140,0,0" VerticalAlignment="Top" Width="75" Background="#FFD31818" Command="{Binding CreateNewGameCommand}" IsDefault="True"/>
+        <Button x:Name="play" Content="Play!" HorizontalAlignment="Left" Margin="374,175,0,0" VerticalAlignment="Top" Width="75" Background="#FF1E369E" Command="{Binding PlayGameCommand}"/>
 
         <Label x:Name="label" Content="Total Cost:" HorizontalAlignment="Left" Margin="254,275,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Payout:" HorizontalAlignment="Left" Margin="270,222,0,0" VerticalAlignment="Top"/>
