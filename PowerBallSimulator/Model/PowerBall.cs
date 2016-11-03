@@ -54,7 +54,7 @@ namespace PowerBallSimulator.Model
         {
             upperBound = 70;
             Color = "white";
-            AssignNumber();
+            //AssignNumber();
         }
     }
 
@@ -64,7 +64,7 @@ namespace PowerBallSimulator.Model
         {
             upperBound = 27;
             Color = "red";
-            AssignNumber();
+            //AssignNumber();
         }
     }
 

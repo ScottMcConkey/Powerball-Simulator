@@ -57,6 +57,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\Commands.cs" />
     <Compile Include="Model\PowerBall.cs" />
+    <Compile Include="PayoutRules.cs" />
     <Compile Include="PowerballFactory.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
     <Page Include="MainWindow.xaml">

@@ -10,15 +10,15 @@ namespace PowerBallSimulator.ViewModel
 {
     public class PowerBallViewModel
     {
-        private Game _game;
-
         public PowerBallViewModel()
         {
             _game = new Game();
 
             CreateNewGameCommand = new Commands.CreateNewGameCommand(this);
-            PlayGameCommand = new Commands.CreateNewGameCommand(this);
+            PlayGameCommand = new Commands.PlayGameCommand(this);
         }
+
+        private Game _game;
 
         public Game game
         {
@@ -26,9 +26,17 @@ namespace PowerBallSimulator.ViewModel
             set { _game = value; }
         }
 
+        public void CreateNewGame()
+        {
+            game.ClearGuessValues();
+            game.SetActualValues();
+        }
+
         public void PlayGame()
         {
-            game.GenerateGuessValues();
+            game.SetGuessValues();
+            game.ChargeForNewTicket();
+            game.SetPayout();
         }
 
         public ICommand PlayGameCommand
@@ -37,20 +45,11 @@ namespace PowerBallSimulator.ViewModel
             private set;
         }
 
-        public void CreateNewGame()
-        {
-            game.ResetPowerBallValues();
-        }
-
         public ICommand CreateNewGameCommand
         {
             get;
             private set;
         }
-
-
-        //public int intTotalAmountPaid { get { return obj.TotalAmountPaid; } }
-        //public int intCostPerGame { get { return obj.CostPerGame; } }
 
 
     }

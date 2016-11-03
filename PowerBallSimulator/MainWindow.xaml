@@ -45,16 +45,16 @@
         <TextBox Text="{Binding game.Guess5.Number}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="254,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
         <TextBox Text="{Binding game.Guess6.Number}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="289,175,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="30"/>
 
-            <Button x:Name="newgame" Content="New Game" HorizontalAlignment="Left" Margin="374,140,0,0" VerticalAlignment="Top" Width="75" Background="#FFD31818" Command="{Binding CreateNewGameCommand}" IsDefault="True"/>
+        <Button x:Name="newgame" Content="New Game" HorizontalAlignment="Left" Margin="374,140,0,0" VerticalAlignment="Top" Width="75" Background="#FFD31818" Command="{Binding CreateNewGameCommand}" IsDefault="True"/>
         <Button x:Name="play" Content="Play!" HorizontalAlignment="Left" Margin="374,175,0,0" VerticalAlignment="Top" Width="75" Background="#FF1E369E" Command="{Binding PlayGameCommand}"/>
 
         <Label x:Name="label" Content="Total Cost:" HorizontalAlignment="Left" Margin="254,275,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Payout:" HorizontalAlignment="Left" Margin="270,222,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label2" Content="Total Winnings:" HorizontalAlignment="Left" Margin="228,247,0,0" VerticalAlignment="Top"/>
         <Label x:Name="info" Content="Info" HorizontalAlignment="Left" Margin="30,270,0,0" VerticalAlignment="Top" Foreground="#FF161CA6" Background="{x:Null}"/>
-        <TextBox x:Name="Payout" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="374,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Background="Gray" TextAlignment="Right"/>
-        <TextBox x:Name="TotalWinnings" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="374,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Background="Gray" TextAlignment="Right"/>
-        <TextBox x:Name="TotalCost" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="374,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Background="Gray" TextAlignment="Right"/>
+        <TextBox x:Name="Payout" Text="{Binding game.Payout}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="374,224,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Background="Gray" TextAlignment="Right"/>
+        <TextBox x:Name="TotalWinnings" Text="{Binding game.TotalWinnings}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="374,250,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Background="Gray" TextAlignment="Right"/>
+        <TextBox x:Name="TotalCost" Text="{Binding game.TotalAmountPaid}" IsReadOnly="True" HorizontalAlignment="Left" Height="20" Margin="374,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="75" Background="Gray" TextAlignment="Right"/>
 
         </Grid>
     </DockPanel>

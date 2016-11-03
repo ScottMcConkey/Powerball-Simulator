@@ -6,12 +6,54 @@ namespace PowerBallSimulator.Model
 {
     public class Game : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        private readonly int _CostPerGame = 2;
+        private int _TotalAmountPaid = 0;
+        private int _TotalWinnings = 0;
+        private int _Payout = 0;
+
+        public int Payout
+        {
+            get { return _Payout; }
+            set
+            {
+                _Payout = value;
+                OnPropertyChanged("Payout");
+            }
+        }
+
+        public int TotalWinnings
+        {
+            get { return _TotalWinnings; }
+            set
+            {
+                _TotalWinnings = value;
+                OnPropertyChanged("TotalWinnings");
+            }
+        }
+
+        public int TotalAmountPaid
+        {
+            get { return _TotalAmountPaid; }
+            set
+            {
+                _TotalAmountPaid = value;
+                OnPropertyChanged("TotalAmountPaid");
+            }
+
+        }
+
+        internal void ChargeForNewTicket()
+        {
+            TotalAmountPaid += _CostPerGame;
+        }
 
         public Game()
         {
             GeneratePowerBalls();
+            SetActualValues();
         }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         private void OnPropertyChanged(string p)
         {
@@ -22,6 +64,8 @@ namespace PowerBallSimulator.Model
                 handler(this, new PropertyChangedEventArgs(p));
             }
         }
+
+        #region Define PowerBall Fields
 
         private PowerBall _actual1;
         private PowerBall _actual2;
@@ -35,6 +79,8 @@ namespace PowerBallSimulator.Model
         private PowerBall _guess4;
         private PowerBall _guess5;
         private PowerBall _guess6;
+
+        #endregion
 
         #region Define PowerBall Properties
 
@@ -102,21 +148,26 @@ namespace PowerBallSimulator.Model
 
         #endregion
 
-        internal int TotalAmountPaid { get; set; }
-        internal int CostPerGame { get; } = 2;
-
         public void GeneratePowerBalls()
         {
-            // Set Powerball values
+            // Create Powerballs
             Actual1 = new WhiteBall();
             Actual2 = new WhiteBall();
             Actual3 = new WhiteBall();
             Actual4 = new WhiteBall();
             Actual5 = new WhiteBall();
             Actual6 = new RedBall();
+
+            // Create Guesses
+            Guess1 = new WhiteBall();
+            Guess2 = new WhiteBall();
+            Guess3 = new WhiteBall();
+            Guess4 = new WhiteBall();
+            Guess5 = new WhiteBall();
+            Guess6 = new RedBall();
         }
 
-        internal void ResetPowerBallValues()
+        internal void SetActualValues()
         {
             Actual1.AssignNumber();
             Actual2.AssignNumber();
@@ -126,15 +177,14 @@ namespace PowerBallSimulator.Model
             Actual6.AssignNumber();
         }
 
-        internal void GenerateGuessValues()
+        internal void SetGuessValues()
         {
-            // Set Guess values
-            Guess1 = new WhiteBall();
-            Guess2 = new WhiteBall();
-            Guess3 = new WhiteBall();
-            Guess4 = new WhiteBall();
-            Guess5 = new WhiteBall();
-            Guess6 = new RedBall();
+            Guess1.AssignNumber();
+            Guess2.AssignNumber();
+            Guess3.AssignNumber();
+            Guess4.AssignNumber();
+            Guess5.AssignNumber();
+            Guess6.AssignNumber();
         }
 
         internal void ClearGuessValues()
@@ -147,46 +197,33 @@ namespace PowerBallSimulator.Model
             Guess6.Clear();
         }
 
+        public void SetPayout()
+        {
+            int RedActual = (int)Actual6.Number;
+            int RedGuess = (int)Guess6.Number;
+            int RoundPayout;
+            
+            List<int> WhiteGuesses = new List<int>()
+            { (int)Guess1.Number,
+              (int)Guess2.Number,
+              (int)Guess3.Number,
+              (int)Guess4.Number,
+              (int)Guess5.Number
+            };
+            
+            List<int> WhiteActuals = new List<int>()
+            { (int)Actual1.Number,
+              (int)Actual2.Number,
+              (int)Actual3.Number,
+              (int)Actual4.Number,
+              (int)Actual5.Number
+            };
 
-        //internal int CalculateWinnings(int[] actuals, int[] guesses)
-       //{
-       //    int matchCount = 0;
-       //
-       //    List<int?> Guesses = new List<int?>()
-       //    { guess1.Number,
-       //      guess2.Number,
-       //      guess3.Number,
-       //      guess4.Number,
-       //      guess5.Number,
-       //      guess6.Number };
-       //
-       //    List<int?> Actuals = new List<int?>()
-       //    { _actual1.Number,
-       //      actual2.Number,
-       //      actual3.Number,
-       //      actual4.Number,
-       //      actual5.Number,
-       //      actual6.Number };
-       //
-       //    foreach (int num in Guesses)
-       //    {
-       //        foreach (int num2 in Actuals)
-       //        {
-       //            if (Guesses[num] == Actuals[num2])
-       //            {
-       //                matchCount++;
-       //                Guesses.Remove(Guesses[num]);
-       //                Actuals.Remove(Actuals[num2]);
-       //            }
-       //        }
-       //    }
+            RoundPayout = PayoutRules.CalculateReturnValue(WhiteGuesses,WhiteActuals,RedActual,RedGuess);
+            Payout = RoundPayout;
+            TotalWinnings += Payout;
+        }
 
-       //     return 1;
-       // }
     }
-
-
-
-
 
 }
