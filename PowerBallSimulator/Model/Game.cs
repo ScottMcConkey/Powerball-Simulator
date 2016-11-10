@@ -7,10 +7,10 @@ namespace PowerBallSimulator.Model
     public class Game : INotifyPropertyChanged
     {
         private readonly int _CostPerGame = 2;
+        private int _Payout = 0;
         private int _TotalAmountPaid = 0;
         private int _TotalWinnings = 0;
-        private int _Payout = 0;
-
+        
         public int Payout
         {
             get { return _Payout; }
@@ -18,16 +18,6 @@ namespace PowerBallSimulator.Model
             {
                 _Payout = value;
                 OnPropertyChanged("Payout");
-            }
-        }
-
-        public int TotalWinnings
-        {
-            get { return _TotalWinnings; }
-            set
-            {
-                _TotalWinnings = value;
-                OnPropertyChanged("TotalWinnings");
             }
         }
 
@@ -39,7 +29,16 @@ namespace PowerBallSimulator.Model
                 _TotalAmountPaid = value;
                 OnPropertyChanged("TotalAmountPaid");
             }
+        }
 
+        public int TotalWinnings
+        {
+            get { return _TotalWinnings; }
+            set
+            {
+                _TotalWinnings = value;
+                OnPropertyChanged("TotalWinnings");
+            }
         }
 
         internal void ChargeForNewTicket()
@@ -65,86 +64,21 @@ namespace PowerBallSimulator.Model
             }
         }
 
-        #region Define PowerBall Fields
-
-        private PowerBall _actual1;
-        private PowerBall _actual2;
-        private PowerBall _actual3;
-        private PowerBall _actual4;
-        private PowerBall _actual5;
-        private PowerBall _actual6;
-        private PowerBall _guess1;
-        private PowerBall _guess2;
-        private PowerBall _guess3;
-        private PowerBall _guess4;
-        private PowerBall _guess5;
-        private PowerBall _guess6;
-
-        #endregion
-
         #region Define PowerBall Properties
 
-        public PowerBall Actual1
-        {
-            get { return _actual1; }
-            set { _actual1 = value; }
-        }
-        public PowerBall Actual2
-        {
-            get { return _actual2; }
-            set { _actual2 = value; }
-        }
-        public PowerBall Actual3
-        {
-            get { return _actual3; }
-            set { _actual3 = value; }
-        }
-        public PowerBall Actual4
-        {
-            get { return _actual4; }
-            set { _actual4 = value; }
-        }
-        public PowerBall Actual5
-        {
-            get { return _actual5; }
-            set { _actual5 = value; }
-        }
-        public PowerBall Actual6
-        {
-            get { return _actual6; }
-            set { _actual6 = value; }
-        }
+        public PowerBall Actual1 { get; set; }
+        public PowerBall Actual2 { get; set; }
+        public PowerBall Actual3 { get; set; }
+        public PowerBall Actual4 { get; set; }
+        public PowerBall Actual5 { get; set; }
+        public PowerBall Actual6 { get; set; }
 
-        public PowerBall Guess1
-        {
-            get { return _guess1; }
-            set { _guess1 = value; }
-        }
-        public PowerBall Guess2
-        {
-            get { return _guess2; }
-            set { _guess2 = value; }
-        }
-        public PowerBall Guess3
-        {
-            get { return _guess3; }
-            set { _guess3 = value; }
-        }
-        public PowerBall Guess4
-        {
-            get { return _guess4; }
-            set { _guess4 = value; }
-        }
-        public PowerBall Guess5
-        {
-            get { return _guess5; }
-            set { _guess5 = value; }
-        }
-        public PowerBall Guess6
-        {
-            get { return _guess6; }
-            set { _guess6 = value; }
-        }
+        public PowerBall Guess1 { get; set; }
+        public PowerBall Guess2 { get; set; }
+        public PowerBall Guess3 { get; set; }
+        public PowerBall Guess4 { get; set; }
+        public PowerBall Guess5 { get; set; }
+        public PowerBall Guess6 { get; set; }
 
         #endregion
 

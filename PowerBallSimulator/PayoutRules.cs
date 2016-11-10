@@ -70,7 +70,7 @@ namespace PowerBallSimulator
             // Grand Prize
             else if (WhiteMatchCount == 5 && RedMatchCount == 1)
             {
-                return 10000000;//replace with random to get grand prize
+                return 10000000;
             }
             else
             {

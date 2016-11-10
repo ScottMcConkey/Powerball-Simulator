@@ -8,7 +8,6 @@ namespace PowerBallSimulator.Model
         // Establish a random seed for each ball
         protected Random random = RandomNumber.GetRandomSeed();
         protected int upperBound;
-        public string Color { get; set; }
 
         private int? _Number;
         public int? Number
@@ -53,8 +52,6 @@ namespace PowerBallSimulator.Model
         public WhiteBall()
         {
             upperBound = 70;
-            Color = "white";
-            //AssignNumber();
         }
     }
 
@@ -63,8 +60,6 @@ namespace PowerBallSimulator.Model
         public RedBall()
         {
             upperBound = 27;
-            Color = "red";
-            //AssignNumber();
         }
     }
 

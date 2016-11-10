@@ -12,19 +12,13 @@ namespace PowerBallSimulator.ViewModel
     {
         public PowerBallViewModel()
         {
-            _game = new Game();
+            game = new Game();
 
             CreateNewGameCommand = new Commands.CreateNewGameCommand(this);
             PlayGameCommand = new Commands.PlayGameCommand(this);
         }
 
-        private Game _game;
-
-        public Game game
-        {
-            get { return _game; }
-            set { _game = value; }
-        }
+        public Game game { get; set; }
 
         public void CreateNewGame()
         {
